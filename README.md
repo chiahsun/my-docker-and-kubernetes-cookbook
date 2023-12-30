@@ -1,1 +1,1 @@
-# my-docker-and-kubernetes-cookbook
+# My Docker and Kubernetes Cookbook
