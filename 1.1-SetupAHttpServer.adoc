@@ -1,8 +1,11 @@
 
 === Serve a Http Server
 
-Use https://hub.docker.com/_/httpd[httpd]
+==== By Copy
 
+By mount is easier, see next section.
+
+Use https://hub.docker.com/_/httpd[httpd]
 
 1. Get the docker image
 +
@@ -13,7 +16,7 @@ docker pull httpd
 +
 [source]
 ----
-include::./1.1-SetupAHttpServer/Dockerfile[lines=1..4]
+include::./1.1-SetupAHttpServer/1.1.1-ByCopy/Dockerfile[lines=1..4]
 ----
 <1> For example, we copy `index.html` to the container directory hosting html files, i.e. `htdocs`
 
@@ -34,3 +37,12 @@ Visit `http://localhost:8080/` for your html page
 docker stop my-running-app
 docker rm my-running-app
 ----
+
+==== By Mount
+
+[source,bash]
+----
+include::./1.1-SetupAHttpServer/1.1.2-ByMount/run.sh[]
+----
+
+By this method, any change would apply if you refresh the web page.
