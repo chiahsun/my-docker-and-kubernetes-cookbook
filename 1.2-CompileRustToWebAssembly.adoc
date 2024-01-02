@@ -1,0 +1,31 @@
+
+=== Compile a Rust Program to WebAssembly
+
+We use https://docs.wasmer.io/javascript-sdk/tutorials/run[an example in wasmer].
+
+`markdown-renderer/src/main.rs`
+
+[source,rust]
+----
+include::./1.2-CompileRustToWebAssembly/markdown-renderer/src/main.rs[lines=2..]
+----
+
+To produce `markdown-renderer/target/wasm32-wasi/release/markdown-renderer.wasm`, we need to use `cargo build` of the Rust compiler toolchain.
+
+1. Build the compiler docker image first.
++
+[source,dockfile]
+----
+include::./1.2-CompileRustToWebAssembly/markdown-renderer/Dockerfile[lines=2..]
+----
++
+[source,shell]
+$ docker build -t my-rust-wasm32-wasi-compiler .
+
+2. Build the wasm using the compiler image.
++
+[source,shell]
+$ docker run -it --name to-compile-rust -v "$PWD":/usr/src/myapp -w /usr/src/myapp my-rust-wasm32-wasi-compiler cargo build --release --target=wasm32-wasi
++
+In this way, we mount the host directory and the wasm built in the container will result in the host directory.
+

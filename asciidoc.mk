@@ -2,10 +2,8 @@
 .PHONY: build view watch
 
 build:
-	asciidoctor -a stylesheet=$(ROOT)/dark.css -v -t index.adoc
-
-build-with-diagram:
-	asciidoctor -a stylesheet=$(ROOT)/dark.css -r asciidoctor-diagram -v -t index.adoc
+	asciidoctor -a stylesheet=dark.css -a highlightjsdir=highlight -v -t index.adoc
+	# asciidoctor -v -t index.adoc
 
 view:
 	open index.html -a Safari
@@ -13,4 +11,5 @@ view:
 watch:
 	$(ROOT)/watch_build.sh
 
-# dark.css modified from https://github.com/darshandsoni/asciidoctor-skins/raw/gh-pages/css/dark.css
+download-dark-css:
+	curl -LO https://github.com/darshandsoni/asciidoctor-skins/raw/gh-pages/css/dark.css
