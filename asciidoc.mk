@@ -1,15 +1,16 @@
 
-.PHONY: build view watch
+.PHONY: adoc-build adoc-view adoc-watch
 
-build:
+adoc-build: dark.css highlight/highlight.min.js
 	asciidoctor -a stylesheet=dark.css -a highlightjsdir=highlight -v -t index.adoc
-	# asciidoctor -v -t index.adoc
 
-view:
+adoc-view:
 	open index.html -a Safari
 	
-watch:
+adoc-watch:
 	$(ROOT)/watch_build.sh
 
-download-dark-css:
+adoc-download-css: dark.css
+
+dark.css:
 	curl -LO https://github.com/darshandsoni/asciidoctor-skins/raw/gh-pages/css/dark.css

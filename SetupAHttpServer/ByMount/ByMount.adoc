@@ -1,0 +1,18 @@
+
+
+==== By Mount
+
+[source,bash]
+----
+include::run.sh[]
+----
+
+* `-rm`
++
+[source,shell]
+----
+$ docker run --help | grep -e '-rm'
+      --rm                             Automatically remove the container when it exits
+----
+
+* By this method, any change for files on host would apply if you refresh the web page.

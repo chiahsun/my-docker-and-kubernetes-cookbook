@@ -1,0 +1,56 @@
+
+=== https://docs.docker.com/get-started/overview/[Docker Docs]
+
+https://docs.docker.com/get-started/overview/[Overview]
+
+[source, shell]
+$ docker run -i -t ubuntu /bin/bash
+
+[source,shell]
+----
+$ docker run --help | grep -e ' -i\| -t'
+  -i, --interactive                    Keep STDIN open even if not attached
+  -t, --tty                            Allocate a pseudo-TTY
+----
+
+https://docs.docker.com/get-docker/[Get Docker]
+
+For Apple silicon-mac, install the right version and install rosetta if needed.
+
+[source,shell]
+$ softwareupdate --install-rosetta
+
+https://docs.docker.com/guides/get-started/[Get Started]
+
+==== https://docs.docker.com/guides/walkthroughs/what-is-a-container/[Quick Hands-on Guide]
+
+* https://docs.docker.com/guides/walkthroughs/what-is-a-container/[What is a container?]
+* https://docs.docker.com/guides/walkthroughs/run-a-container/[Run a container]
++
+Check `welcome-to-docker/Dockerfile`
++
+[source,bash]
+----
+$ docker build --help | grep ' -t'
+  -t, --tag stringArray               Name and optionally a tag (format: "name:tag")
+----
+* https://docs.docker.com/guides/walkthroughs/run-hub-images/[Run DockerHub images]
+* https://docs.docker.com/guides/walkthroughs/multi-container-apps/[Run multi-container applications]
++
+Check `multi-container-app/compose.yaml`
++
+[source,shell]
+----
+$ docker compose up --help | grep ' -d'
+      --abort-on-container-exit   Stops all containers if any container was stopped. Incompatible with -d
+  -d, --detach                    Detached mode: Run containers in the background
+----
+
+* https://docs.docker.com/guides/walkthroughs/persist-data/[Persist container data]
+* https://docs.docker.com/guides/walkthroughs/access-local-folder/[Access local folder]
+* https://docs.docker.com/guides/walkthroughs/containerize-your-app/[Containerize your app]
++
+[source,shell]
+$ docker init
+
+* https://docs.docker.com/guides/walkthroughs/publish-your-image/[Publish your image]

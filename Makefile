@@ -1,5 +1,5 @@
 ROOT=.
 
-all: build view
+all: adoc-build adoc-view
 -include $(ROOT)/asciidoc.mk
 

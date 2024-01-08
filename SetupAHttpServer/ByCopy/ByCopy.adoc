@@ -1,6 +1,4 @@
 
-=== Serve a Http Server
-
 ==== By Copy
 
 By mount is easier, see next section.
@@ -16,7 +14,7 @@ docker pull httpd
 +
 [source]
 ----
-include::./1.1-SetupAHttpServer/1.1.1-ByCopy/Dockerfile[lines=1..4]
+include::Dockerfile[lines=1..4]
 ----
 <1> For example, we copy `index.html` to the container directory hosting html files, i.e. `htdocs`
 
@@ -25,7 +23,7 @@ include::./1.1-SetupAHttpServer/1.1.1-ByCopy/Dockerfile[lines=1..4]
 [source,bash]
 ----
 docker build -t my-apache2 .
-docker run -dit --name my-running-app -p 8080:80 my-apache2
+docker run -dit -rm --name my-running-app -p 8080:80 my-apache2
 ----
 +
 Visit `http://localhost:8080/` for your html page
@@ -37,12 +35,3 @@ Visit `http://localhost:8080/` for your html page
 docker stop my-running-app
 docker rm my-running-app
 ----
-
-==== By Mount
-
-[source,bash]
-----
-include::./1.1-SetupAHttpServer/1.1.2-ByMount/run.sh[]
-----
-
-By this method, any change would apply if you refresh the web page.

@@ -28,4 +28,3 @@ $ docker build -t my-rust-wasm32-wasi-compiler .
 $ docker run -it --name to-compile-rust -v "$PWD":/usr/src/myapp -w /usr/src/myapp my-rust-wasm32-wasi-compiler cargo build --release --target=wasm32-wasi
 +
 In this way, we mount the host directory and the wasm built in the container will result in the host directory.
-
