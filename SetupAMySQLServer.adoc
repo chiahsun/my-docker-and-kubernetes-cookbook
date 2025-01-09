@@ -1,0 +1,48 @@
+
+=== https://hub.docker.com/_/mysql[Set up a MySQL Server]
+
+[source,bash]
+---------
+docker run --name your-first-mysql -e MYSQL_ROOT_PASSWORD=AS62aB18Sa -d mysql
+---------
+
+Then, you can use the Exec environment in your container from the Docker desktop.
+
+[source,bash]
+---------
+$ mysql -p
+Enter password:
+---------
+
+Then, enter the password `AS62aB18Sa`
+
+To https://docs.docker.com/reference/cli/docker/container/stop/[stop] and https://docs.docker.com/reference/cli/docker/container/rm/[remove] the container.
+
+[source,bash]
+---------
+docker stop your-first-mysql
+docker container rm your-first-mysql
+---------
+
+
+It would be easier to export the port in container to your host machine.
+
+[source,bash]
+---------
+docker run --name your-first-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=AS62aB18Sa -d mysql
+---------
+
+You can install the MySQL client using homebrew.
+
+[source,bash]
+---------
+brew install mysql-client
+echo 'export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"' >> ~/.zshrc
+---------
+
+Then you can connect the MySQL server from MySQL client from your machine through port 3306
+[source,bash]
+---------
+$ mysql -h 127.0.0.1 -P 3306 -u root -p
+Enter password:
+---------

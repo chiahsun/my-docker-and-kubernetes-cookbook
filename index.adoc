@@ -12,6 +12,9 @@
 :sectnums:
 :sectnumlevels: 4
 
+== Installation
+include::Installation.adoc[]
+
 [discrete]
 = Part I. Docker
 == Tutorials & Guides
@@ -20,4 +23,5 @@ include::DockerDocs/DockerDocs.adoc[]
 == Sample Applications using Docker
 include::SetupAHttpServer/SetupAHttpServer.adoc[]
 include::1.2-CompileRustToWebAssembly.adoc[]
+include::SetupAMySQLServer.adoc[]
 
